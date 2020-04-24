@@ -22,7 +22,7 @@
         $conn = null;
         return $results;
     }
-    function idToName($conn, $getresult){
+    function idToName($getresult){
         $conn = connect();
         $sql = $conn->prepare("SELECT name FROM games where id = :id ;");
         $sql->bindParam(':id', $getresult);
@@ -33,14 +33,13 @@
     }
     function deleteGame($getresult){
         $conn = connect();
-        // $deletegame = $conn->prepare("DELETE FROM games WHERE id = :id");
-        // $deletegame->bindParam(':id', $getresult);
-        // $deletegame->execute();
+        $deletegame = $conn->prepare("DELETE FROM games WHERE id = :id");
+        $deletegame->bindParam(':id', $getresult);
+        $deletegame->execute();
         $conn = null;
-        $deletegame = 12;
-        return $deletegame;
     }
     function planner($id, $time, $explainer, $players){
+        $conn = connect();
         $insert = $conn->prepare("INSERT INTO `planning` (`id`, `time`, `explainer`, `players`) VALUES (:id, :time, :explainer, :players)");
         $insert->bindParam(':id', $id);
         $insert->bindParam(':time', $time);
@@ -48,5 +47,13 @@
         $insert->bindParam(':players', $players);
         $insert->execute();
         $conn = null;
+    }
+    function getPlanning(){
+        $conn = connect();
+        $sql = $conn->prepare("SELECT * FROM planning order by time ;");
+        $sql->execute();
+        $results = $sql->fetchAll();
+        $conn = null;
+        return $results;
     }
 ?>

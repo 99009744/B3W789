@@ -141,3 +141,11 @@ a{
 .deletePageButton:hover{
     cursor: pointer;
 }
+.planningItem{
+    width: 300px;
+    height: auto;
+    margin: 10px;
+    border: white solid 2px;
+    border-radius: 25px;
+    padding: 10px;
+}

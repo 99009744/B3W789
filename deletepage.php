@@ -2,7 +2,7 @@
     require("dblink.php");
     $conn = connect();
     $getresult = $_POST['id'];
-    $gamename = idToName($conn, $getresult);
+    $gamename = idToName($getresult);
 ?>
 <!DOCTYPE html>
 <html lang="en">
