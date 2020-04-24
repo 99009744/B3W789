@@ -16,33 +16,65 @@
     margin-top: 0px;
     display: inline-block;
 }
+#optionsDiv{
+    width: 1400px;
+    border: red solid 2px;
+    border-radius: 25px;
+    text-align: center;
+    margin: 0 auto 25px;
+}
+#navbar{
+    width: 80%;
+    margin: 0 auto;
+    font-family: 'Orbitron', sans-serif;
+}
+.navOptions{
+    text-decoration: none;
+    display: inline-block;
+    width: 200px;
+    margin: 10px 150px;
+}
+a{
+    text-decoration: none;
+}
 #container{
     width: 1400px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
     font-family: 'Orbitron', sans-serif;
 }
-#fullpage{
-    grid-row: 1/2;
-    grid-column: 1/2;
-    width: 1000px;
+#mainpage{
+    width: 1400px;
     height: auto;
     border: white 2px solid;
     border-radius: 25px;
 }
-#planning{
+.item{
+    width: 650px;
+    height: auto;
+    display: inline-block;
+    margin: 20px;
+    border: red solid 2px;
+}
+.grid{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 250px auto;
+    grid-template-rows: auto;
+}
+.image{
+    width: 250px;
+    height: 250px;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.infoItem{
     grid-row: 1/2;
     grid-column: 2/3;
-    width: 350px;
-    margin-left: 40px;
-    height: auto;
-    border: white 2px solid;
-    border-radius: 25px;
-}
-#planningtitle{
     text-align: center;
+}
+.infoItemText{
+    margin: 0;
 }
 #footer{
     border: red 2px solid;
@@ -54,4 +86,58 @@
     margin-top: 25px;
     font-family: 'Orbitron', sans-serif;
     color: red;
+}
+
+#gamepage{
+    width: 1400px;
+    height: auto;
+    border: white 2px solid;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: 425px auto;
+    grid-template-rows: auto;
+}
+#gameHeader{
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin: 10px;
+    border: red solid 2px;
+}
+#profilepicture{
+    height: 400px;
+    width: 400px;
+}
+.gameInfo{
+    margin-left: 10px;
+}
+#gameBody{
+    margin: 25px;
+}
+#deletepage{
+    width: 1400px;
+    margin: 0 auto;
+    height: 100px;
+    border: red solid 2px;
+    border-radius: 25px;
+    font-family: 'Orbitron', sans-serif;
+}
+#deleteText{
+    text-align: center;
+}
+.deleteForm{
+    width: auto;
+    display: inline-block ;
+}
+.deleteButton{
+    margin: 0 auto;
+    border: red solid 2px;
+    padding: 10px 25px;
+}
+.deletePageButton{
+    border: none;
+    font-size: 16px;
+    font-family: 'Orbitron', sans-serif;
+}
+.deletePageButton:hover{
+    cursor: pointer;
 }
