@@ -23,7 +23,6 @@
         updatePlanning($updatedgameid , $updatedtime, $updatedexplainer, $updatedplayers , $updatePlanning);
         echo "<script>alert('SUCCESSFULLY UPDATED')</script>";
     }
-    $gameInfo = getGames($conn);
     $results = getPlanning();
     
 ?>
@@ -54,8 +53,10 @@
             <?php
             foreach($results as $result){
             $getGameName = idToName($result['gameid']);
+            $gameInfo = getGame($result['gameid']);
         ?>
             <div class="planningItem">
+            <img src="afbeeldingen/<? echo $gameInfo[0]['image']?>" class="planningspic">
             <p>Planning id = <? echo $result['id'] ?> </p>
             <p>Game name = <? echo $getGameName[0][0] ?></p>
             <p>Time H:M:S = <? echo $result['time'] ?></p>
