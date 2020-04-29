@@ -2,6 +2,7 @@
     include_once ("dblink.php");
     $conn = connect();
     $results = getGames($conn);
+    $planningId = $_GET['planningid'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,15 +26,16 @@
         <div id="container">
             <div id="mainpage">
             <form method="post" action="planning.php" style="margin: 25px">
-                Explainer : <input type="text" name="explainer" placeholder="Explainer name" required/><br />
+            <input type="hidden" value="<? echo $planningId ?>" name="updatedplanningid"/>
+                Explainer : <input type="text" name="updatedexplainer" placeholder="Explainer name" required/><br />
                 <label>Select game:</label>
-                <select name="gameid">
+                <select name="updatedgameid">
                     <? foreach($results as $games) { ?>
                     <option value="<?= $games['id'] ?>" required><?= $games['name'] ?></option>
                     <? } ?>
                 </select><br>
-                Time: <input type="time" value="Submit" name="time" required/><br>
-                Players: <input type="text" placeholder="players" name="players" required/><br>
+                Time: <input type="time" value="Submit" name="updatedtime" required/><br>
+                Players: <input type="text" placeholder="players" name="updatedplayers" required/><br>
                 <input type="submit" value="Submit" />
             </form>
             </div>

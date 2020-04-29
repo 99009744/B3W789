@@ -38,10 +38,10 @@
         $deletegame->execute();
         $conn = null;
     }
-    function planner($id, $time, $explainer, $players){
+    function planner($gameid, $time, $explainer, $players){
         $conn = connect();
-        $insert = $conn->prepare("INSERT INTO `planning` (`id`, `time`, `explainer`, `players`) VALUES (:id, :time, :explainer, :players)");
-        $insert->bindParam(':id', $id);
+        $insert = $conn->prepare("INSERT INTO `planning` (`gameid`, `time`, `explainer`, `players`) VALUES (:gameid, :time, :explainer, :players)");
+        $insert->bindParam(':gameid', $gameid);
         $insert->bindParam(':time', $time);
         $insert->bindParam(':explainer', $explainer);
         $insert->bindParam(':players', $players);
@@ -55,5 +55,24 @@
         $results = $sql->fetchAll();
         $conn = null;
         return $results;
+    }
+    function deletePlanning($getPlanningId){
+        $conn = connect();
+        $sql = $conn->prepare("DELETE FROM planning WHERE id = :id");
+        $sql->bindParam(':id', $getPlanningId);
+        $sql->execute();
+        $conn = null;
+    }
+    function updatePlanning( $updatedgameid , $updatedtime, $updatedexplainer, $updatedplayers , $updatePlanning){
+        $conn = connect();
+        $sql = $conn->prepare("UPDATE `planning` SET gameid = :gameid, time = :time, explainer = :explainer, players = :players WHERE id = :id");
+        $sql->bindParam(':id', $updatePlanning);
+        $sql->bindParam(':gameid', $updatedgameid);
+        $sql->bindParam(':time', $updatedtime);
+        $sql->bindParam(':explainer', $updatedexplainer);
+        $sql->bindParam(':players', $updatedplayers);
+        $sql->execute();
+        $conn = null;
+        
     }
 ?>
